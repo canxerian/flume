@@ -8,7 +8,8 @@ const TextInput = ({
   onChange,
   data,
   step,
-  type
+  type,
+  disableInputs
 }) => {
   const numberInput = React.useRef()
   const recalculateStageRect = React.useContext(RecalculateStageRectContext)
@@ -34,9 +35,10 @@ const TextInput = ({
     <div className={styles.wrapper} data-flume-component="text-input">
       {type === "number" ? (
         <input
+          disabled={disableInputs}
           data-flume-component="text-input-number"
           onKeyDown={e => {
-            if(e.keyCode === 69){
+            if (e.keyCode === 69) {
               e.preventDefault()
               return false;
             }

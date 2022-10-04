@@ -95,4 +95,16 @@
     font-style: italic;
     color: rgb(50, 50, 50);
   }
+  &[data-disabled="true"] {
+    cursor: not-allowed;
+    label {
+      cursor: not-allowed;
+    }
+  }
+  &[data-disabled="false"] {
+    cursor: pointer;
+    label {
+      cursor: pointer;
+    }
+  }
 }

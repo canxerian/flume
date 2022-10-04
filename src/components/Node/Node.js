@@ -22,7 +22,8 @@ const Node = ({
   type,
   inputData,
   onDragStart,
-  renderNodeHeader
+  renderNodeHeader,
+  disableInputs
 }) => {
   const cache = React.useContext(CacheContext);
   const nodeTypes = React.useContext(NodeTypesContext);
@@ -191,6 +192,7 @@ const Node = ({
         connections={connections}
         updateNodeConnections={updateNodeConnections}
         inputData={inputData}
+        disableInputs={disableInputs}
       />
       {menuOpen ? (
         <Portal>
