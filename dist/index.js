@@ -5245,7 +5245,7 @@ var Checkbox = function Checkbox(_ref) {
   );
 };
 
-var css$7 = ".TextInput_wrapper__tefOZ{\r\n  background: none;\r\n  border: none;\r\n}\r\n.TextInput_input__1QHwS{\r\n  background: linear-gradient(to bottom, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  border-radius: 4px;\r\n  font-size: 13px;\r\n  padding: 5px;\r\n  resize: vertical;\r\n  outline: none;\r\n}\r\n.TextInput_input__1QHwS::placeholder{\r\n    color: rgb(47, 49, 50);\r\n  }\r\n.TextInput_input__1QHwS:focus{\r\n    background: linear-gradient(to bottom, #676b6e, #75797c);\r\n  }\r\n";
+var css$7 = ".TextInput_wrapper__tefOZ{\r\n  background: none;\r\n  border: none;\r\n}\r\n.TextInput_input__1QHwS{\r\n  background: linear-gradient(to bottom, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  border-radius: 4px;\r\n  font-size: 13px;\r\n  padding: 5px;\r\n  resize: vertical;\r\n  outline: none;\r\n}\r\n.TextInput_input__1QHwS::placeholder{\r\n    color: rgb(47, 49, 50);\r\n  }\r\n.TextInput_input__1QHwS:focus{\r\n    background: linear-gradient(to bottom, #676b6e, #75797c);\r\n  }\r\n.TextInput_input__1QHwS:disabled {\r\n    cursor: not-allowed;\r\n  }\r\n";
 var styles$7 = { "wrapper": "TextInput_wrapper__tefOZ", "input": "TextInput_input__1QHwS" };
 styleInject(css$7);
 
@@ -5255,7 +5255,8 @@ var TextInput = function TextInput(_ref) {
       _onChange = _ref.onChange,
       data = _ref.data,
       step = _ref.step,
-      type = _ref.type;
+      type = _ref.type,
+      disableInputs = _ref.disableInputs;
 
   var numberInput = React__default.useRef();
   var recalculateStageRect = React__default.useContext(RecalculateStageRectContext);
@@ -5281,6 +5282,7 @@ var TextInput = function TextInput(_ref) {
     "div",
     { className: styles$7.wrapper, "data-flume-component": "text-input" },
     type === "number" ? React__default.createElement("input", {
+      disabled: disableInputs,
       "data-flume-component": "text-input-number",
       onKeyDown: function onKeyDown(e) {
         if (e.keyCode === 69) {
@@ -5333,7 +5335,7 @@ var TextInput = function TextInput(_ref) {
   );
 };
 
-var css$8 = ".Select_wrapper__eAPoQ{\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  padding-right: 15px;\r\n  position: relative;\r\n}\r\n  .Select_wrapper__eAPoQ::after{\r\n    content: \"\";\r\n    position: absolute;\r\n    background: none;\r\n    right: 5px;\r\n    top: 8px;\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 5px 0 5px;\r\n    border-color: #191b1c transparent transparent transparent;\r\n  }\r\n  .Select_wrapper__eAPoQ:hover{\r\n    background: linear-gradient(to top, #63676a, #777b7e);\r\n  }\r\n.Select_chipWrapper__3hK2u{\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  border: 1px solid #3c3e40;\r\n  margin: 2px;\r\n  position: relative;\r\n}\r\n.Select_chipWrapper__3hK2u:hover .Select_deleteButton__1FnLK{\r\n  opacity: 1;\r\n}\r\n.Select_chipsWrapper__4Alw8{\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-bottom: 6px;\r\n}\r\n.Select_deleteButton__1FnLK{\r\n  position: absolute;\r\n  right: 0px;\r\n  top: 0px;\r\n  height: 100%;\r\n  width: 22px;\r\n  padding: 0px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  border-radius: 3px;\r\n  border: none;\r\n  font-weight: bold;\r\n  opacity: 0;\r\n}\r\n.Select_deleteButton__1FnLK:focus{\r\n  opacity: 1;\r\n}\r\n.Select_deleteButton__1FnLK:hover{\r\n  background: linear-gradient(to top, #64696c, #797f82);\r\n}\r\n.Select_selectedWrapper__SUs4D{\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  padding-right: 15px;\r\n  position: relative;\r\n}\r\n.Select_selectedWrapper__SUs4D::after{\r\n    content: \"\";\r\n    position: absolute;\r\n    background: none;\r\n    right: 5px;\r\n    top: calc(50% - 4px);\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 5px 0 5px;\r\n    border-color: #191b1c transparent transparent transparent;\r\n  }\r\n.Select_selectedWrapper__SUs4D label{\r\n    margin: 0px;\r\n  }\r\n.Select_selectedWrapper__SUs4D p{\r\n    margin: 0px;\r\n    margin-top: 5px;\r\n    font-size: 12px;\r\n    font-style: italic;\r\n    color: rgb(50, 50, 50);\r\n  }\r\n";
+var css$8 = ".Select_wrapper__eAPoQ{\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  padding-right: 15px;\r\n  position: relative;\r\n}\r\n  .Select_wrapper__eAPoQ::after{\r\n    content: \"\";\r\n    position: absolute;\r\n    background: none;\r\n    right: 5px;\r\n    top: 8px;\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 5px 0 5px;\r\n    border-color: #191b1c transparent transparent transparent;\r\n  }\r\n  .Select_wrapper__eAPoQ:hover{\r\n    background: linear-gradient(to top, #63676a, #777b7e);\r\n  }\r\n.Select_chipWrapper__3hK2u{\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  border: 1px solid #3c3e40;\r\n  margin: 2px;\r\n  position: relative;\r\n}\r\n.Select_chipWrapper__3hK2u:hover .Select_deleteButton__1FnLK{\r\n  opacity: 1;\r\n}\r\n.Select_chipsWrapper__4Alw8{\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-bottom: 6px;\r\n}\r\n.Select_deleteButton__1FnLK{\r\n  position: absolute;\r\n  right: 0px;\r\n  top: 0px;\r\n  height: 100%;\r\n  width: 22px;\r\n  padding: 0px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  border-radius: 3px;\r\n  border: none;\r\n  font-weight: bold;\r\n  opacity: 0;\r\n}\r\n.Select_deleteButton__1FnLK:focus{\r\n  opacity: 1;\r\n}\r\n.Select_deleteButton__1FnLK:hover{\r\n  background: linear-gradient(to top, #64696c, #797f82);\r\n}\r\n.Select_selectedWrapper__SUs4D{\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 4px;\r\n  background: linear-gradient(to top, #5b5f62, #6f7477);\r\n  width: 100%;\r\n  border: 1px solid #3c3e40;\r\n  font-size: 14px;\r\n  padding: 3px 6px;\r\n  padding-right: 15px;\r\n  position: relative;\r\n}\r\n.Select_selectedWrapper__SUs4D::after{\r\n    content: \"\";\r\n    position: absolute;\r\n    background: none;\r\n    right: 5px;\r\n    top: calc(50% - 4px);\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 5px 0 5px;\r\n    border-color: #191b1c transparent transparent transparent;\r\n  }\r\n.Select_selectedWrapper__SUs4D label{\r\n    margin: 0px;\r\n  }\r\n.Select_selectedWrapper__SUs4D p{\r\n    margin: 0px;\r\n    margin-top: 5px;\r\n    font-size: 12px;\r\n    font-style: italic;\r\n    color: rgb(50, 50, 50);\r\n  }\r\n.Select_selectedWrapper__SUs4D[data-disabled=\"true\"] {\r\n    cursor: not-allowed;\r\n  }\r\n.Select_selectedWrapper__SUs4D[data-disabled=\"true\"] label {\r\n      cursor: not-allowed;\r\n    }\r\n.Select_selectedWrapper__SUs4D[data-disabled=\"false\"] {\r\n    cursor: pointer;\r\n  }\r\n.Select_selectedWrapper__SUs4D[data-disabled=\"false\"] label {\r\n      cursor: pointer;\r\n    }\r\n";
 var styles$8 = { "wrapper": "Select_wrapper__eAPoQ", "chipWrapper": "Select_chipWrapper__3hK2u", "deleteButton": "Select_deleteButton__1FnLK", "chipsWrapper": "Select_chipsWrapper__4Alw8", "selectedWrapper": "Select_selectedWrapper__SUs4D" };
 styleInject(css$8);
 
@@ -5346,7 +5348,8 @@ var Select = function Select(_ref) {
       placeholder = _ref$placeholder === undefined ? "[Select an option]" : _ref$placeholder,
       onChange = _ref.onChange,
       data = _ref.data,
-      allowMultiple = _ref.allowMultiple;
+      allowMultiple = _ref.allowMultiple,
+      disableInputs = _ref.disableInputs;
 
   var _React$useState = React__default.useState(false),
       _React$useState2 = slicedToArray(_React$useState, 2),
@@ -5368,6 +5371,10 @@ var Select = function Select(_ref) {
   };
 
   var openDrawer = function openDrawer() {
+    if (disableInputs) {
+      return;
+    }
+
     if (!drawerOpen) {
       var wrapperRect = wrapper.current.getBoundingClientRect();
       setDrawerCoordinates({
@@ -5431,7 +5438,8 @@ var Select = function Select(_ref) {
     ) : null : data ? React__default.createElement(SelectedOption, {
       wrapperRef: wrapper,
       option: selectedOption,
-      onClick: openDrawer
+      onClick: openDrawer,
+      disableInputs: disableInputs
     }) : null,
     (allowMultiple || !data) && React__default.createElement(
       "div",
@@ -5459,10 +5467,17 @@ var SelectedOption = function SelectedOption(_ref2) {
   var label = _ref2$option.label,
       description = _ref2$option.description,
       wrapperRef = _ref2.wrapperRef,
-      onClick = _ref2.onClick;
+      onClick = _ref2.onClick,
+      disableInputs = _ref2.disableInputs;
   return React__default.createElement(
     "div",
-    { className: styles$8.selectedWrapper, onClick: onClick, ref: wrapperRef, "data-flume-component": "select" },
+    {
+      className: styles$8.selectedWrapper,
+      onClick: onClick,
+      ref: wrapperRef,
+      "data-flume-component": "select",
+      "data-disabled": disableInputs ? "true" : "false"
+    },
     React__default.createElement(
       "label",
       { "data-flume-component": "select-label" },
@@ -5517,7 +5532,8 @@ var Control = function Control(_ref) {
       getOptions = _ref.getOptions,
       setValue = _ref.setValue,
       defaultValue = _ref.defaultValue,
-      isMonoControl = _ref.isMonoControl;
+      isMonoControl = _ref.isMonoControl,
+      disableInputs = _ref.disableInputs;
 
   var nodesDispatch = React__default.useContext(NodeDispatchContext);
   var executionContext = React__default.useContext(ContextContext);
@@ -5547,12 +5563,18 @@ var Control = function Control(_ref) {
       case "select":
         return React__default.createElement(Select, _extends({}, commonProps, {
           options: getOptions ? getOptions(inputData, executionContext) : options,
-          placeholder: placeholder
+          placeholder: placeholder,
+          disableInputs: disableInputs
         }));
       case "text":
         return React__default.createElement(TextInput, _extends({}, commonProps, { placeholder: placeholder }));
       case "number":
-        return React__default.createElement(TextInput, _extends({}, commonProps, { step: step, type: "number", placeholder: placeholder }));
+        return React__default.createElement(TextInput, _extends({}, commonProps, {
+          step: step,
+          type: "number",
+          placeholder: placeholder,
+          disableInputs: disableInputs
+        }));
       case "checkbox":
         return React__default.createElement(Checkbox, _extends({}, commonProps, { label: calculatedLabel }));
       case "multiselect":
@@ -5695,7 +5717,8 @@ var IoPorts = function IoPorts(_ref2) {
       outputs = _ref2$outputs === undefined ? [] : _ref2$outputs,
       connections = _ref2.connections,
       inputData = _ref2.inputData,
-      updateNodeConnections = _ref2.updateNodeConnections;
+      updateNodeConnections = _ref2.updateNodeConnections,
+      disableInputs = _ref2.disableInputs;
 
   var inputTypes = React__default.useContext(PortTypesContext);
   var triggerRecalculation = React__default.useContext(ConnectionRecalculateContext);
@@ -5717,7 +5740,8 @@ var IoPorts = function IoPorts(_ref2) {
           inputTypes: inputTypes,
           nodeId: nodeId,
           inputData: inputData,
-          key: input.name
+          key: input.name,
+          disableInputs: disableInputs
         }));
       })
     ) : null,
@@ -5751,7 +5775,8 @@ var Input = function Input(_ref3) {
       updateNodeConnections = _ref3.updateNodeConnections,
       isConnected = _ref3.isConnected,
       inputData = _ref3.inputData,
-      hidePort = _ref3.hidePort;
+      hidePort = _ref3.hidePort,
+      disableInputs = _ref3.disableInputs;
 
   var _ref4 = inputTypes[type] || {},
       defaultLabel = _ref4.label,
@@ -5807,7 +5832,8 @@ var Input = function Input(_ref3) {
           allData: data,
           key: control.name,
           inputData: inputData,
-          isMonoControl: controls.length === 1
+          isMonoControl: controls.length === 1,
+          disableInputs: disableInputs
         }));
       })
     ) : null
@@ -6047,7 +6073,8 @@ var Node = function Node(_ref) {
       type = _ref.type,
       inputData = _ref.inputData,
       onDragStart = _ref.onDragStart,
-      renderNodeHeader = _ref.renderNodeHeader;
+      renderNodeHeader = _ref.renderNodeHeader,
+      disableInputs = _ref.disableInputs;
 
   var cache = React__default.useContext(CacheContext);
   var nodeTypes = React__default.useContext(NodeTypesContext);
@@ -6210,7 +6237,8 @@ var Node = function Node(_ref) {
       outputs: outputs,
       connections: connections,
       updateNodeConnections: updateNodeConnections,
-      inputData: inputData
+      inputData: inputData,
+      disableInputs: disableInputs
     }),
     menuOpen ? React__default.createElement(
       Portal$3,
@@ -7706,7 +7734,9 @@ exports.NodeEditor = function NodeEditor(_ref, ref) {
       disablePan = _ref$disablePan === undefined ? false : _ref$disablePan,
       circularBehavior = _ref.circularBehavior,
       renderNodeHeader = _ref.renderNodeHeader,
-      debug = _ref.debug;
+      debug = _ref.debug,
+      _ref$disableInputs = _ref.disableInputs,
+      disableInputs = _ref$disableInputs === undefined ? false : _ref$disableInputs;
 
   var editorId = useId();
   var cache = React__default.useRef(new Cache());
@@ -7904,7 +7934,8 @@ exports.NodeEditor = function NodeEditor(_ref, ref) {
                           onDragEnd: triggerRecalculation,
                           onDragStart: recalculateStageRect,
                           renderNodeHeader: renderNodeHeader,
-                          key: node.id
+                          key: node.id,
+                          disableInputs: disableInputs
                         }));
                       }),
                       React__default.createElement(Connections, { nodes: nodes, editorId: editorId }),
