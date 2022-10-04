@@ -1,3 +1,23 @@
+# THIS PROJECT IS A FORK OF https://github.com/chrisjpatty/flume
+
+## Local testing
+In this repo:
+1. `npm run build`
+2. `npm pack`
+   
+Consume in your project:
+1. `npm install --save --legacy-peer-deps path/to/flume/flume-*.tgz`
+  
+## Deploying changes
+In your development branch:
+1. Build (as per above)
+2. Commit and push changes made (include `dist/`)
+
+## Install (this fork)
+```bash
+npm install --save git+https://github.com/canxerian/flume.git#release/eqn
+```
+
 ![](https://raw.githubusercontent.com/chrisjpatty/flume/master/logo.png?token=ADRZXI4TFKM3FXBEBQHQURK6QIJ6Q)
 
 [![NPM](https://img.shields.io/npm/v/flume.svg)](https://www.npmjs.com/package/flume) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Minzip Size](https://badgen.net/bundlephobia/minzip/flume)](https://bundlephobia.com/result?p=flume)
