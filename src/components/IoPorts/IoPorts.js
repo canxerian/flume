@@ -48,7 +48,8 @@ const IoPorts = ({
   outputs = [],
   connections,
   inputData,
-  updateNodeConnections
+  updateNodeConnections,
+  disableInputs,
 }) => {
   const inputTypes = React.useContext(PortTypesContext);
   const triggerRecalculation = React.useContext(ConnectionRecalculateContext);
@@ -70,6 +71,7 @@ const IoPorts = ({
               nodeId={nodeId}
               inputData={inputData}
               key={input.name}
+              disableInputs={disableInputs}
             />
           ))}
         </div>
@@ -108,7 +110,8 @@ const Input = ({
   updateNodeConnections,
   isConnected,
   inputData,
-  hidePort
+  hidePort,
+  disableInputs
 }) => {
   const { label: defaultLabel, color, controls: defaultControls = [] } =
     inputTypes[type] || {};
@@ -162,6 +165,7 @@ const Input = ({
                     key={control.name}
                     inputData={inputData}
                     isMonoControl={controls.length === 1}
+                    disableInputs={disableInputs}
                   />
                 ))
             }

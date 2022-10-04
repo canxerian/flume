@@ -11,7 +11,8 @@ const Select = ({
   placeholder = "[Select an option]",
   onChange,
   data,
-  allowMultiple
+  allowMultiple,
+  disableInputs,
 }) => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [drawerCoordinates, setDrawerCoordinates] = React.useState({

@@ -24,7 +24,8 @@ const Control = ({
   getOptions,
   setValue,
   defaultValue,
-  isMonoControl
+  isMonoControl,
+  disableInputs
 }) => {
   const nodesDispatch = React.useContext(NodeDispatchContext);
   const executionContext = React.useContext(ContextContext);
@@ -59,13 +60,20 @@ const Control = ({
               getOptions ? getOptions(inputData, executionContext) : options
             }
             placeholder={placeholder}
+            disableInputs={disableInputs}
           />
         );
       case "text":
         return <TextInput {...commonProps} placeholder={placeholder} />;
       case "number":
         return (
-          <TextInput {...commonProps} step={step} type="number" placeholder={placeholder} />
+          <TextInput
+            {...commonProps}
+            step={step}
+            type="number"
+            placeholder={placeholder}
+            disableInputs={disableInputs}
+          />
         );
       case "checkbox":
         return <Checkbox {...commonProps} label={calculatedLabel} />;

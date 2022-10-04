@@ -50,7 +50,8 @@ export let NodeEditor = (
     disablePan = false,
     circularBehavior,
     renderNodeHeader,
-    debug
+    debug,
+    disableInputs
   },
   ref
 ) => {
@@ -212,6 +213,7 @@ export let NodeEditor = (
                             onDragStart={recalculateStageRect}
                             renderNodeHeader={renderNodeHeader}
                             key={node.id}
+                            disableInputs={disableInputs}
                           />
                         ))}
                         <Connections nodes={nodes} editorId={editorId} />
