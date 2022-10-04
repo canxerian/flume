@@ -17,4 +17,7 @@
   &:focus{
     background: linear-gradient(to bottom, #676b6e, #75797c);
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

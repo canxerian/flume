@@ -26,6 +26,10 @@ const Select = ({
   };
 
   const openDrawer = () => {
+    if (disableInputs) {
+      return;
+    }
+
     if (!drawerOpen) {
       const wrapperRect = wrapper.current.getBoundingClientRect();
       setDrawerCoordinates({
@@ -37,9 +41,9 @@ const Select = ({
   };
 
   const handleOptionSelected = option => {
-    if(allowMultiple){
+    if (allowMultiple) {
       onChange([...data, option.value]);
-    }else{
+    } else {
       onChange(option.value)
     }
   };
@@ -50,8 +54,8 @@ const Select = ({
 
   const getFilteredOptions = () => (
     allowMultiple ?
-    options.filter(opt => !data.includes(opt.value))
-    : options
+      options.filter(opt => !data.includes(opt.value))
+      : options
   )
 
   const selectedOption = React.useMemo(() => {
@@ -91,6 +95,7 @@ const Select = ({
           wrapperRef={wrapper}
           option={selectedOption}
           onClick={openDrawer}
+          disableInputs={disableInputs}
         />
       ) : null}
       {
@@ -120,9 +125,16 @@ export default Select;
 const SelectedOption = ({
   option: { label, description } = {},
   wrapperRef,
-  onClick
+  onClick,
+  disableInputs
 }) => (
-  <div className={styles.selectedWrapper} onClick={onClick} ref={wrapperRef} data-flume-component="select">
+  <div
+    className={styles.selectedWrapper}
+    onClick={onClick}
+    ref={wrapperRef}
+    data-flume-component="select"
+    data-disabled={disableInputs ? "true" : "false"}
+  >
     <label data-flume-component="select-label">{label}</label>
     {description ? <p data-flume-component="select-desc">{description}</p> : null}
   </div>

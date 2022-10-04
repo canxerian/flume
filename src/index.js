@@ -51,7 +51,7 @@ export let NodeEditor = (
     circularBehavior,
     renderNodeHeader,
     debug,
-    disableInputs
+    disableInputs = false
   },
   ref
 ) => {
@@ -132,7 +132,7 @@ export let NodeEditor = (
   }, [comments, previousComments, onCommentsChange]);
 
   React.useEffect(() => {
-    if(sideEffectToasts){
+    if (sideEffectToasts) {
       dispatchToasts(sideEffectToasts)
       setSideEffectToasts(null)
     }
@@ -237,4 +237,4 @@ NodeEditor = React.forwardRef(NodeEditor);
 export { FlumeConfig, Controls, Colors } from "./typeBuilders";
 export { RootEngine } from "./RootEngine";
 export const useRootEngine = (nodes, engine, context, options = {}) =>
-  Object.keys(nodes).length ? engine.resolveRootNode(nodes, {...options, context }) : {};
+  Object.keys(nodes).length ? engine.resolveRootNode(nodes, { ...options, context }) : {};
