@@ -5113,7 +5113,8 @@ var createSVG = function createSVG(_ref5) {
       outputNodeId = _ref5.outputNodeId,
       outputPortName = _ref5.outputPortName,
       inputNodeId = _ref5.inputNodeId,
-      inputPortName = _ref5.inputPortName;
+      inputPortName = _ref5.inputPortName,
+      isAnimPath = _ref5.isAnimPath;
 
   var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("class", styles$3.svg);
@@ -5129,6 +5130,9 @@ var createSVG = function createSVG(_ref5) {
   path.setAttribute("data-output-port-name", outputPortName);
   path.setAttribute("data-input-node-id", inputNodeId);
   path.setAttribute("data-input-port-name", inputPortName);
+  if (isAnimPath) {
+    path.setAttribute("data-input-port-animpath-name", inputPortName);
+  }
   svg.appendChild(path);
   stage.appendChild(svg);
   return svg;
@@ -5143,6 +5147,7 @@ var createConnections = function createConnections(nodes, _ref6, editorId) {
       stageId = _ref6.stageId;
 
   var stageRef = getStageRef(editorId);
+  var animpathSuffix = "animpath";
   if (stageRef) {
     var stage = stageRef.getBoundingClientRect();
     var stageHalfWidth = stage.width / 2;
@@ -5178,6 +5183,21 @@ var createConnections = function createConnections(nodes, _ref6, editorId) {
                     y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
                   }
                 });
+
+                var existingLineAnim = document.querySelector('[data-connection-id="' + id + '-' + animpathSuffix + '"]');
+                if (existingLineAnim) {
+                  updateConnection({
+                    line: existingLineAnim,
+                    from: {
+                      x: byScale(fromPort.x - stage.x + portHalf - stageHalfWidth),
+                      y: byScale(fromPort.y - stage.y + portHalf - stageHalfHeight)
+                    },
+                    to: {
+                      x: byScale(toPort.x - stage.x + portHalf - stageHalfWidth),
+                      y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
+                    }
+                  });
+                }
               } else {
                 createSVG({
                   id: id,
@@ -5194,6 +5214,23 @@ var createConnections = function createConnections(nodes, _ref6, editorId) {
                     y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
                   },
                   stage: stageRef
+                });
+                createSVG({
+                  id: id + '-' + animpathSuffix,
+                  outputNodeId: output.nodeId,
+                  outputPortName: output.portName,
+                  inputNodeId: node.id,
+                  inputPortName: inputName,
+                  from: {
+                    x: byScale(fromPort.x - stage.x + portHalf - stageHalfWidth),
+                    y: byScale(fromPort.y - stage.y + portHalf - stageHalfHeight)
+                  },
+                  to: {
+                    x: byScale(toPort.x - stage.x + portHalf - stageHalfWidth),
+                    y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
+                  },
+                  stage: stageRef,
+                  isAnimPath: true
                 });
               }
             }

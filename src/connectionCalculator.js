@@ -8,17 +8,17 @@ const getPort = (nodeId, portName, transputType = "input") => document
   )
 
 export const getPortRect = (nodeId, portName, transputType = "input", cache) => {
-  if(cache){
+  if (cache) {
     const portCacheName = nodeId + portName + transputType;
     const cachedPort = cache.current.ports[portCacheName];
-    if(cachedPort){
+    if (cachedPort) {
       return cachedPort.getBoundingClientRect();
-    }else{
+    } else {
       const port = getPort(nodeId, portName, transputType)
       cache.current.ports[portCacheName] = port;
       return port && port.getBoundingClientRect();
     }
-  }else{
+  } else {
     const port = getPort(nodeId, portName, transputType);
     return port && port.getBoundingClientRect();
   }
@@ -90,7 +90,8 @@ export const createSVG = ({
   outputNodeId,
   outputPortName,
   inputNodeId,
-  inputPortName
+  inputPortName,
+  isAnimPath
 }) => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("class", styles.svg);
@@ -106,6 +107,9 @@ export const createSVG = ({
   path.setAttribute("data-output-port-name", outputPortName);
   path.setAttribute("data-input-node-id", inputNodeId);
   path.setAttribute("data-input-port-name", inputPortName);
+  if (isAnimPath) {
+    path.setAttribute("data-input-port-animpath-name", inputPortName);
+  }
   svg.appendChild(path);
   stage.appendChild(svg);
   return svg;
@@ -114,9 +118,10 @@ export const createSVG = ({
 export const getStageRef = editorId =>
   document.getElementById(`${CONNECTIONS_ID}${editorId}`);
 
-export const createConnections = (nodes, {scale, stageId}, editorId) => {
+export const createConnections = (nodes, { scale, stageId }, editorId) => {
   const stageRef = getStageRef(editorId);
-  if(stageRef){
+  const animpathSuffix = "animpath";
+  if (stageRef) {
     const stage = stageRef.getBoundingClientRect();
     const stageHalfWidth = stage.width / 2;
     const stageHalfHeight = stage.height / 2;
@@ -152,6 +157,23 @@ export const createConnections = (nodes, {scale, stageId}, editorId) => {
                       y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
                     }
                   });
+
+                  const existingLineAnim = document.querySelector(
+                    `[data-connection-id="${id}-${animpathSuffix}"]`
+                  );
+                  if (existingLineAnim) {
+                    updateConnection({
+                      line: existingLineAnim,
+                      from: {
+                        x: byScale(fromPort.x - stage.x + portHalf - stageHalfWidth),
+                        y: byScale(fromPort.y - stage.y + portHalf - stageHalfHeight)
+                      },
+                      to: {
+                        x: byScale(toPort.x - stage.x + portHalf - stageHalfWidth),
+                        y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
+                      }
+                    });
+                  }
                 } else {
                   createSVG({
                     id,
@@ -168,6 +190,23 @@ export const createConnections = (nodes, {scale, stageId}, editorId) => {
                       y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
                     },
                     stage: stageRef
+                  });
+                  createSVG({
+                    id: `${id}-${animpathSuffix}`,
+                    outputNodeId: output.nodeId,
+                    outputPortName: output.portName,
+                    inputNodeId: node.id,
+                    inputPortName: inputName,
+                    from: {
+                      x: byScale(fromPort.x - stage.x + portHalf - stageHalfWidth),
+                      y: byScale(fromPort.y - stage.y + portHalf - stageHalfHeight)
+                    },
+                    to: {
+                      x: byScale(toPort.x - stage.x + portHalf - stageHalfWidth),
+                      y: byScale(toPort.y - stage.y + portHalf - stageHalfHeight)
+                    },
+                    stage: stageRef,
+                    isAnimPath: true
                   });
                 }
               }
