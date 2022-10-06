@@ -16,6 +16,8 @@ const Control = ({
   allData,
   render,
   step,
+  minValue,
+  maxValue,
   options = [],
   placeholder,
   inputData,
@@ -70,6 +72,8 @@ const Control = ({
           <TextInput
             {...commonProps}
             step={step}
+            minValue={minValue}
+            maxValue={maxValue}
             type="number"
             placeholder={placeholder}
             disableInputs={disableInputs}

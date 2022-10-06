@@ -45,7 +45,9 @@ export const Controls = {
     },
     () => {},
     config => ({
-      step: define(config.step, undefined)
+      step: define(config.step, undefined),
+      minValue: define(config.minValue, undefined),
+      maxValue: define(config.maxValue, undefined)
     })
   ),
   checkbox: buildControlType({

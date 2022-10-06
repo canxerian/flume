@@ -8,6 +8,8 @@ const TextInput = ({
   onChange,
   data,
   step,
+  minValue,
+  maxValue,
   type,
   disableInputs
 }) => {
@@ -46,10 +48,13 @@ const TextInput = ({
           onChange={e => {
             const inputValue = e.target.value.replace(/e/g, "");
             if (!!inputValue) {
-              const value = parseFloat(inputValue, 10);
+              let value = parseFloat(inputValue, 10);
               if (Number.isNaN(value)) {
                 onChange(0);
-              } else {
+              }
+              else {
+                value = Math.min(value, maxValue);
+                value = Math.max(value, minValue);
                 onChange(value);
                 numberInput.current.value = value;
               }
@@ -62,6 +67,8 @@ const TextInput = ({
             }
           }}
           step={step || "1"}
+          min={`"${minValue || Number.MIN_VALUE}"`}
+          max={`"${maxValue || Number.MAX_VALUE}"`}
           onMouseDown={handlePossibleResize}
           type={type || "text"}
           placeholder={placeholder}
