@@ -5285,6 +5285,8 @@ var TextInput = function TextInput(_ref) {
       _onChange = _ref.onChange,
       data = _ref.data,
       step = _ref.step,
+      minValue = _ref.minValue,
+      maxValue = _ref.maxValue,
       type = _ref.type,
       disableInputs = _ref.disableInputs;
 
@@ -5327,6 +5329,8 @@ var TextInput = function TextInput(_ref) {
           if (Number.isNaN(value)) {
             _onChange(0);
           } else {
+            value = Math.min(value, maxValue);
+            value = Math.max(value, minValue);
             _onChange(value);
             numberInput.current.value = value;
           }
@@ -5339,6 +5343,8 @@ var TextInput = function TextInput(_ref) {
         }
       },
       step: step || "1",
+      min: "\"" + (minValue || Number.MIN_VALUE) + "\"",
+      max: "\"" + (maxValue || Number.MAX_VALUE) + "\"",
       onMouseDown: handlePossibleResize,
       type: type || "text",
       placeholder: placeholder,
@@ -5553,6 +5559,8 @@ var Control = function Control(_ref) {
       allData = _ref.allData,
       render = _ref.render,
       step = _ref.step,
+      minValue = _ref.minValue,
+      maxValue = _ref.maxValue,
       _ref$options = _ref.options,
       options = _ref$options === undefined ? [] : _ref$options,
       placeholder = _ref.placeholder,
@@ -5601,6 +5609,8 @@ var Control = function Control(_ref) {
       case "number":
         return React.createElement(TextInput, _extends({}, commonProps, {
           step: step,
+          minValue: minValue,
+          maxValue: maxValue,
           type: "number",
           placeholder: placeholder,
           disableInputs: disableInputs
@@ -6356,7 +6366,9 @@ var Controls = {
     defaultValue: 0
   }, function () {}, function (config) {
     return {
-      step: define(config.step, undefined)
+      step: define(config.step, undefined),
+      minValue: define(config.minValue, undefined),
+      maxValue: define(config.maxValue, undefined)
     };
   }),
   checkbox: buildControlType({
