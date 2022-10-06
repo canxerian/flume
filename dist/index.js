@@ -5292,8 +5292,10 @@ var TextInput = function TextInput(_ref) {
       _onChange = _ref.onChange,
       data = _ref.data,
       step = _ref.step,
-      minValue = _ref.minValue,
-      maxValue = _ref.maxValue,
+      _ref$minValue = _ref.minValue,
+      minValue = _ref$minValue === undefined ? Number.MIN_VALUE : _ref$minValue,
+      _ref$maxValue = _ref.maxValue,
+      maxValue = _ref$maxValue === undefined ? Number.MAX_VALUE : _ref$maxValue,
       type = _ref.type,
       disableInputs = _ref.disableInputs;
 
@@ -5350,8 +5352,8 @@ var TextInput = function TextInput(_ref) {
         }
       },
       step: step || "1",
-      min: "\"" + (minValue || Number.MIN_VALUE) + "\"",
-      max: "\"" + (maxValue || Number.MAX_VALUE) + "\"",
+      min: "\"" + minValue + "\"",
+      max: "\"" + maxValue + "\"",
       onMouseDown: handlePossibleResize,
       type: type || "text",
       placeholder: placeholder,

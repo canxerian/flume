@@ -8,8 +8,8 @@ const TextInput = ({
   onChange,
   data,
   step,
-  minValue,
-  maxValue,
+  minValue = Number.MIN_VALUE,
+  maxValue = Number.MAX_VALUE,
   type,
   disableInputs
 }) => {
@@ -67,8 +67,8 @@ const TextInput = ({
             }
           }}
           step={step || "1"}
-          min={`"${minValue || Number.MIN_VALUE}"`}
-          max={`"${maxValue || Number.MAX_VALUE}"`}
+          min={`"${minValue}"`}
+          max={`"${maxValue}"`}
           onMouseDown={handlePossibleResize}
           type={type || "text"}
           placeholder={placeholder}
