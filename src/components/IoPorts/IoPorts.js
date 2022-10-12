@@ -111,7 +111,8 @@ const Input = ({
   isConnected,
   inputData,
   hidePort,
-  disableInputs
+  disableInputs,
+  customProps,
 }) => {
   const { label: defaultLabel, color, controls: defaultControls = [] } =
     inputTypes[type] || {};
@@ -166,6 +167,7 @@ const Input = ({
                     inputData={inputData}
                     isMonoControl={controls.length === 1}
                     disableInputs={disableInputs}
+                    customProps={customProps}
                   />
                 ))
             }

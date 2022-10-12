@@ -104,7 +104,8 @@ export const getPortBuilders = ports =>
         noControls: define(config.noControls, false),
         color: config.color || port.color,
         hidePort: define(config.hidePort, port.hidePort),
-        controls: define(config.controls, port.controls)
+        controls: define(config.controls, port.controls),
+        customProps: config.customProps
       };
     };
     return obj;

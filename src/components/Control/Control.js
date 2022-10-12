@@ -27,7 +27,8 @@ const Control = ({
   setValue,
   defaultValue,
   isMonoControl,
-  disableInputs
+  disableInputs,
+  customProps,
 }) => {
   const nodesDispatch = React.useContext(NodeDispatchContext);
   const executionContext = React.useContext(ContextContext);
@@ -99,7 +100,8 @@ const Control = ({
           name,
           portName,
           inputLabel,
-          defaultValue
+          defaultValue,
+          customProps
         }, allData);
       default:
         return <div>Control</div>;
