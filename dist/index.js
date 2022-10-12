@@ -5580,7 +5580,8 @@ var Control = function Control(_ref) {
       setValue = _ref.setValue,
       defaultValue = _ref.defaultValue,
       isMonoControl = _ref.isMonoControl,
-      disableInputs = _ref.disableInputs;
+      disableInputs = _ref.disableInputs,
+      customProps = _ref.customProps;
 
   var nodesDispatch = React__default.useContext(NodeDispatchContext);
   var executionContext = React__default.useContext(ContextContext);
@@ -5640,7 +5641,8 @@ var Control = function Control(_ref) {
           name: name,
           portName: portName,
           inputLabel: inputLabel,
-          defaultValue: defaultValue
+          defaultValue: defaultValue,
+          customProps: customProps
         }, allData);
       default:
         return React__default.createElement(
@@ -5825,7 +5827,8 @@ var Input = function Input(_ref3) {
       isConnected = _ref3.isConnected,
       inputData = _ref3.inputData,
       hidePort = _ref3.hidePort,
-      disableInputs = _ref3.disableInputs;
+      disableInputs = _ref3.disableInputs,
+      customProps = _ref3.customProps;
 
   var _ref4 = inputTypes[type] || {},
       defaultLabel = _ref4.label,
@@ -5882,7 +5885,8 @@ var Input = function Input(_ref3) {
           key: control.name,
           inputData: inputData,
           isMonoControl: controls.length === 1,
-          disableInputs: disableInputs
+          disableInputs: disableInputs,
+          customProps: customProps
         }));
       })
     ) : null
@@ -6432,7 +6436,8 @@ var getPortBuilders = function getPortBuilders(ports) {
         noControls: define(config.noControls, false),
         color: config.color || port.color,
         hidePort: define(config.hidePort, port.hidePort),
-        controls: define(config.controls, port.controls)
+        controls: define(config.controls, port.controls),
+        customProps: config.customProps
       };
     };
     return obj;
