@@ -137,6 +137,14 @@ const SelectedOption = ({
   >
     <label data-flume-component="select-label">{label}</label>
     {description ? <p data-flume-component="select-desc">{description}</p> : null}
+
+    {/* Down chevron */}
+    <div className={selectStyles.selectedWrapperIcon}>
+      <svg fill="currentColor" class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 01-.78 0L4.15 8.35a.5.5 0 11.7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0z" fill="currentColor">
+        </path>
+      </svg>
+    </div>
   </div>
 );
 
