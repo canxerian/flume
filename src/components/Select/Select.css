@@ -75,11 +75,14 @@
   /* position: relative; */
   justify-content: space-between;
   .selectedWrapperIcon{
+    display: inline-flex;
+    align-items: center;
     width: 34px;
     height: 100%;
     background-color: #888;
     border-radius: 0 2px 2px 0;
     text-align: center;
+    padding: 0 0.5rem 0 0.5rem;
   }
   label{
     margin: 0px;
