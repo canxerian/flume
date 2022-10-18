@@ -78,6 +78,12 @@
   &[data-selected=true]{
     background: rgba(255,255,255,.05);
   }
+  &[data-disabled=true]{
+    cursor: not-allowed;
+    label{
+      cursor: not-allowed;
+    }
+  }
 }
 .emptyText{
   color: #fff;

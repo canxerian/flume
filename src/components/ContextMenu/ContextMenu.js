@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ContextMenu.css";
 import clamp from "lodash/clamp";
-import { nanoid }from "nanoid/non-secure/index";
+import { nanoid } from "nanoid/non-secure/index";
 
 const ContextMenu = ({
   x,
@@ -23,8 +23,11 @@ const ContextMenu = ({
   const menuId = React.useRef(nanoid(10));
 
   const handleOptionSelected = option => {
-    onOptionSelected(option);
-    onRequestClose();
+    console.log("Selected option", option);
+    if (!option.disabled) {
+      onOptionSelected(option);
+      onRequestClose();
+    }
   };
 
   const testClickOutside = React.useCallback(
@@ -173,6 +176,7 @@ const ContextMenu = ({
             onMouseEnter={() => setSelectedIndex(null)}
             index={i}
             key={option.value + i}
+            disabled={option.disabled || false}
           >
             <label>{option.label}</label>
             {option.description ? <p>{option.description}</p> : null}
@@ -192,7 +196,8 @@ const ContextOption = ({
   children,
   onClick,
   selected,
-  onMouseEnter
+  onMouseEnter,
+  disabled
 }) => {
   return (
     <div
@@ -202,6 +207,7 @@ const ContextOption = ({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       data-selected={selected}
+      data-disabled={disabled}
       id={`${menuId}-${index}`}
     >
       {children}

@@ -495,7 +495,7 @@ PortalWithState.defaultProps = {
   onClose: function onClose() {}
 };
 
-var css$1 = ".ContextMenu_menuWrapper__1BheJ{\r\n  position: fixed;\r\n  z-index: 9999;\r\n  background: rgba(29, 32, 34, 0.95);\r\n  border-radius: 5px;\r\n  box-shadow: 0px 6px 7px rgba(0,0,0,.3);\r\n  border: 1px solid rgba(0,0,0,.4);\r\n  font-size: 14px;\r\n  max-width: 300px;\r\n  min-width: 150px;\r\n  font-family: Helvetica, sans-serif;\r\n  line-height: 1.15;\r\n  outline: none;\r\n}\r\n@supports (backdrop-filter: blur(6px)){\r\n  .ContextMenu_menuWrapper__1BheJ{\r\n    backdrop-filter: blur(6px);\r\n    background: rgba(29, 32, 34, 0.8);\r\n  }\r\n}\r\n.ContextMenu_menuHeader__1Cw58{\r\n  padding: 5px;\r\n  border-bottom: 1px solid rgba(255,255,255,.1);\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.ContextMenu_menuLabel__158Pv{\r\n  margin: 0px;\r\n  color: #fff;\r\n  font-size: 16px;\r\n  font-weight: 600;\r\n}\r\n.ContextMenu_optionsWrapper__2YK_z{\r\n  max-height: 300px;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.ContextMenu_menuFilter__1goBp{\r\n  border: none;\r\n  background: none;\r\n  height: 24px;\r\n  flex: 1 1 auto;\r\n  width: 100%;\r\n  outline: none;\r\n  color: #fff;\r\n}\r\n.ContextMenu_menuFilter__1goBp::placeholder{\r\n    font-style: italic;\r\n  }\r\n.ContextMenu_option__33MDL{\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-shrink: 0;\r\n  padding: 5px;\r\n  border-bottom: 1px solid rgba(255,255,255,.1);\r\n  color: #ffffff;\r\n}\r\n.ContextMenu_option__33MDL:last-child{\r\n    border-bottom: none;\r\n  }\r\n.ContextMenu_option__33MDL:hover{\r\n    background: rgba(255,255,255,.05);\r\n  }\r\n.ContextMenu_option__33MDL label{\r\n    margin-bottom: 5px;\r\n    user-select: none;\r\n  }\r\n.ContextMenu_option__33MDL label:last-child{\r\n      margin-bottom: 0px;\r\n    }\r\n.ContextMenu_option__33MDL p{\r\n    margin: 0px;\r\n    font-style: italic;\r\n    font-size: 12px;\r\n    color: rgb(182, 186, 194);\r\n    user-select: none;\r\n  }\r\n.ContextMenu_option__33MDL[data-selected=true]{\r\n    background: rgba(255,255,255,.05);\r\n  }\r\n.ContextMenu_emptyText__2rcXy{\r\n  color: #fff;\r\n  padding: 5px;\r\n}\r\n";
+var css$1 = ".ContextMenu_menuWrapper__1BheJ{\r\n  position: fixed;\r\n  z-index: 9999;\r\n  background: rgba(29, 32, 34, 0.95);\r\n  border-radius: 5px;\r\n  box-shadow: 0px 6px 7px rgba(0,0,0,.3);\r\n  border: 1px solid rgba(0,0,0,.4);\r\n  font-size: 14px;\r\n  max-width: 300px;\r\n  min-width: 150px;\r\n  font-family: Helvetica, sans-serif;\r\n  line-height: 1.15;\r\n  outline: none;\r\n}\r\n@supports (backdrop-filter: blur(6px)){\r\n  .ContextMenu_menuWrapper__1BheJ{\r\n    backdrop-filter: blur(6px);\r\n    background: rgba(29, 32, 34, 0.8);\r\n  }\r\n}\r\n.ContextMenu_menuHeader__1Cw58{\r\n  padding: 5px;\r\n  border-bottom: 1px solid rgba(255,255,255,.1);\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.ContextMenu_menuLabel__158Pv{\r\n  margin: 0px;\r\n  color: #fff;\r\n  font-size: 16px;\r\n  font-weight: 600;\r\n}\r\n.ContextMenu_optionsWrapper__2YK_z{\r\n  max-height: 300px;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.ContextMenu_menuFilter__1goBp{\r\n  border: none;\r\n  background: none;\r\n  height: 24px;\r\n  flex: 1 1 auto;\r\n  width: 100%;\r\n  outline: none;\r\n  color: #fff;\r\n}\r\n.ContextMenu_menuFilter__1goBp::placeholder{\r\n    font-style: italic;\r\n  }\r\n.ContextMenu_option__33MDL{\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-shrink: 0;\r\n  padding: 5px;\r\n  border-bottom: 1px solid rgba(255,255,255,.1);\r\n  color: #ffffff;\r\n}\r\n.ContextMenu_option__33MDL:last-child{\r\n    border-bottom: none;\r\n  }\r\n.ContextMenu_option__33MDL:hover{\r\n    background: rgba(255,255,255,.05);\r\n  }\r\n.ContextMenu_option__33MDL label{\r\n    margin-bottom: 5px;\r\n    user-select: none;\r\n  }\r\n.ContextMenu_option__33MDL label:last-child{\r\n      margin-bottom: 0px;\r\n    }\r\n.ContextMenu_option__33MDL p{\r\n    margin: 0px;\r\n    font-style: italic;\r\n    font-size: 12px;\r\n    color: rgb(182, 186, 194);\r\n    user-select: none;\r\n  }\r\n.ContextMenu_option__33MDL[data-selected=true]{\r\n    background: rgba(255,255,255,.05);\r\n  }\r\n.ContextMenu_option__33MDL[data-disabled=true]{\r\n    cursor: not-allowed;\r\n  }\r\n.ContextMenu_option__33MDL[data-disabled=true] label{\r\n      cursor: not-allowed;\r\n    }\r\n.ContextMenu_emptyText__2rcXy{\r\n  color: #fff;\r\n  padding: 5px;\r\n}\r\n";
 var styles$1 = { "menuWrapper": "ContextMenu_menuWrapper__1BheJ", "menuHeader": "ContextMenu_menuHeader__1Cw58", "menuLabel": "ContextMenu_menuLabel__158Pv", "optionsWrapper": "ContextMenu_optionsWrapper__2YK_z", "menuFilter": "ContextMenu_menuFilter__1goBp", "option": "ContextMenu_option__33MDL", "emptyText": "ContextMenu_emptyText__2rcXy" };
 styleInject(css$1);
 
@@ -1051,8 +1051,11 @@ var ContextMenu = function ContextMenu(_ref) {
   var menuId = React__default.useRef(nanoid(10));
 
   var handleOptionSelected = function handleOptionSelected(option) {
-    onOptionSelected(option);
-    onRequestClose();
+    console.log("Selected option", option);
+    if (!option.disabled) {
+      onOptionSelected(option);
+      onRequestClose();
+    }
   };
 
   var testClickOutside = React__default.useCallback(function (e) {
@@ -1208,7 +1211,8 @@ var ContextMenu = function ContextMenu(_ref) {
               return setSelectedIndex(null);
             },
             index: i,
-            key: option.value + i
+            key: option.value + i,
+            disabled: option.disabled || false
           },
           React__default.createElement(
             "label",
@@ -1237,7 +1241,8 @@ var ContextOption = function ContextOption(_ref2) {
       children = _ref2.children,
       onClick = _ref2.onClick,
       selected = _ref2.selected,
-      onMouseEnter = _ref2.onMouseEnter;
+      onMouseEnter = _ref2.onMouseEnter,
+      disabled = _ref2.disabled;
 
   return React__default.createElement(
     "div",
@@ -1248,6 +1253,7 @@ var ContextOption = function ContextOption(_ref2) {
       onClick: onClick,
       onMouseEnter: onMouseEnter,
       "data-selected": selected,
+      "data-disabled": disabled,
       id: menuId + "-" + index
     },
     children
